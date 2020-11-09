@@ -22,7 +22,7 @@ if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s')
     logging.root.setLevel(level=logging.INFO)
     logger.info("running %s" % ' '.join(sys.argv))
-    VG_dict = json.load(open('/mnt/hdd2/guoyuyu/datasets/visual_genome/data/genome/VG-SGG-dicts.json','r'))
+    VG_dict = json.load(open('/mnt/hdd2/***/datasets/visual_genome/data/genome/VG-SGG-dicts.json','r'))
     VG_pred2idx = VG_dict['predicate_to_idx']
     pred_wiki_count = {}
     phrase_matcher = PhraseMatcher(nlp.vocab)
