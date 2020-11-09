@@ -19,8 +19,8 @@ if __name__ == '__main__':
     # if len(sys.argv) != 3:
         # print("Using: python process_wiki.py enwiki.xxx.xml.bz2 wiki.en.text")
         # sys.exit(1)
-    inp = "/mnt/hdd3/guoyuyu/datasets/wikipedia/simplewiki-latest-pages-articles.xml.bz2"
-    outp = "/mnt/hdd3/guoyuyu/datasets/wikipedia/simplewiki-latest-pages-articles.txt"
+    inp = "/mnt/hdd3/***/datasets/wikipedia/simplewiki-latest-pages-articles.xml.bz2"
+    outp = "/mnt/hdd3/***/datasets/wikipedia/simplewiki-latest-pages-articles.txt"
     space = " "
     i = 0
 
