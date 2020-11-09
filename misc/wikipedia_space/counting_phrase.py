@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print(patterns)
     print(len(patterns))
     phrase_matcher.add('phrase_matcher', None, *patterns)
-    # inp = "/mnt/hdd3/guoyuyu/datasets/wikipedia/simplewiki-latest-pages-articles.xml.bz2"
+    # inp = "/mnt/hdd3/***/datasets/wikipedia/simplewiki-latest-pages-articles.xml.bz2"
     # wiki = WikiCorpus(inp, lemmatize=False, dictionary={})
     # article_text = " "
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
         # article_text.join(text) + "\n"
         # if (i % 10000 == 0):
             # logger.info("Append " + str(i) + " articles")
-    wiki_file = open("/mnt/hdd3/guoyuyu/datasets/wikipedia/simplewiki-latest-pages-articles.txt", 'r')
+    wiki_file = open("/mnt/hdd3/***/datasets/wikipedia/simplewiki-latest-pages-articles.txt", 'r')
     article_text = wiki_file.readline()
     article_count = 0
     while article_text:
