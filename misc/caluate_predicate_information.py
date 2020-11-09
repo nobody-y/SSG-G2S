@@ -1,6 +1,6 @@
 import numpy as np
 import json 
-vg_dict_info = json.load(open('/mnt/hdd2/guoyuyu/datasets/visual_genome/data/genome/VG-SGG-dicts-with-attri-info.json','r'))
+vg_dict_info = json.load(open('/mnt/hdd2/***/datasets/visual_genome/data/genome/VG-SGG-dicts-with-attri-info.json','r'))
 predicate_count = vg_dict_info['predicate_count']
 pred_count_sum = 0
 for i in predicate_count:

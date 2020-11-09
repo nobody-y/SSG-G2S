@@ -35,7 +35,7 @@ from maskrcnn_benchmark.utils.miscellaneous import mkdir, save_config
 from maskrcnn_benchmark.utils.metric_logger import MetricLogger
 
 # where to load detected scene graph
-model_path = '/mnt/hdd3/guoyuyu/datasets/visual_genome/model/sgg_benchmark/checkpoints_best/'
+model_path = '/mnt/hdd3/***/datasets/visual_genome/model/sgg_benchmark/checkpoints_best/'
 model_name = 'transformer_sgdet_dist20_2k_FixPModel_lr1e3_B16_FixCMatDot'
 #model_name ='transformer_sgdet_Lr1e3_B16_It16'
 

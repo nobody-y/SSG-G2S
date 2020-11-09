@@ -83,7 +83,7 @@ def main(data_fp, pic_fp):
 
 if __name__ == '__main__':
     #wc_from_text(s, 'wc1.jpg')
-    vg_dict = json.load(open('/mnt/hdd2/guoyuyu/datasets/visual_genome/data/genome/VG-SGG-dicts-with-attri.json','r'))
+    vg_dict = json.load(open('/mnt/hdd2/***/datasets/visual_genome/data/genome/VG-SGG-dicts-with-attri.json','r'))
     predicates_tree = vg_dict['predicate_count']
     predicates_sort = sorted(predicates_tree.items(), key=lambda x:x[1], reverse=True)
     pred_sort_dict = {}

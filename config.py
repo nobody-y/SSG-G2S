@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 import numpy as np
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
-DATA_PATH = '/hhd/guoyuyu/datasets/visual_genome/data/genome/'
+DATA_PATH = '/hhd/***/datasets/visual_genome/data/genome/'
 
 def path(fn):
     return os.path.join(DATA_PATH, fn)
@@ -19,7 +19,7 @@ def stanford_path(fn):
 # =============================================================================
 # Update these with where your data is stored ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-VG_IMAGES = '/hhd/guoyuyu/datasets/visual_genome/data/genome/VG_100K'
+VG_IMAGES = '/hhd/***/datasets/visual_genome/data/genome/VG_100K'
 RCNN_CHECKPOINT_FN = path('faster_rcnn_500k.h5')
 
 IM_DATA_FN = stanford_path('image_data.json')

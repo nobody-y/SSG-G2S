@@ -19,7 +19,7 @@ from dataloaders.image_transforms import SquarePad, Grayscale, Brightness, Sharp
 from collections import defaultdict
 from pycocotools.coco import COCO
 import dill as pkl
-AE_results = pkl.load(open('/home/guoyuyu/code/code_by_other/neural-motifs_graphcnn/AEloss_sgdet.pkl','rb'))
+AE_results = pkl.load(open('/home/***/code/code_by_other/neural-motifs_graphcnn/AEloss_sgdet.pkl','rb'))
 
 class VG(Dataset):
     def __init__(self, mode, roidb_file=VG_SGG_FN, dict_file=VG_SGG_DICT_FN,

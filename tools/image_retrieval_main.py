@@ -51,7 +51,7 @@ sg_type_name = 'origin'
 # sg_test_path = '/data1/image_retrieval/causal_{}_sgdet_{}_{}_test.pytorch'.format(sg_model_name, sg_fusion_name, sg_type_name)
 # output_path = '/data1/image_retrieval_model/causal_'+sg_model_name+'_sgdet_'+sg_fusion_name+'_'+sg_type_name+'_output_%s_%d.pytorch'
 
-model_path = '/mnt/hdd3/guoyuyu/datasets/visual_genome/model/sgg_benchmark/checkpoints_best/'
+model_path = '/mnt/hdd3/****/datasets/visual_genome/model/sgg_benchmark/checkpoints_best/'
 model_name = 'transformer_sgdet_dist20_2k_FixPModel_lr1e3_B16_FixCMatDot'
 #model_name ='transformer_sgdet_Lr1e3_B16_It16'
 

@@ -19,7 +19,7 @@ prd_dist = np.load('rel_dis.npy')
 prd_dist = prd_dist[1:]
 print('prd_dist shape: ',prd_dist.shape)
 #prd_dist = prd_dist[1:]
-VG_dict = json.load(open('/mnt/hdd2/guoyuyu/datasets/visual_genome/data/genome/VG-SGG-dicts.json','r'))
+VG_dict = json.load(open('/mnt/hdd2/****/datasets/visual_genome/data/genome/VG-SGG-dicts.json','r'))
 conf_mat = np.load('conf_mat_freq_train.npy')  
 conf_mat[:,0] = 0
 conf_mat[0,:] = 0

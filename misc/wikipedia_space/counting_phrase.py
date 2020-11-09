@@ -22,7 +22,7 @@ if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s')
     logging.root.setLevel(level=logging.INFO)
     logger.info("running %s" % ' '.join(sys.argv))
-    VG_dict = json.load(open('/mnt/hdd2/guoyuyu/datasets/visual_genome/data/genome/VG-SGG-dicts.json','r'))
+    VG_dict = json.load(open('/mnt/hdd2/***/datasets/visual_genome/data/genome/VG-SGG-dicts.json','r'))
     VG_pred2idx = VG_dict['predicate_to_idx']
     pred_wiki_count = {}
     phrase_matcher = PhraseMatcher(nlp.vocab)
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print(patterns)
     print(len(patterns))
     phrase_matcher.add('phrase_matcher', None, *patterns)
-    # inp = "/mnt/hdd3/guoyuyu/datasets/wikipedia/simplewiki-latest-pages-articles.xml.bz2"
+    # inp = "/mnt/hdd3/***/datasets/wikipedia/simplewiki-latest-pages-articles.xml.bz2"
     # wiki = WikiCorpus(inp, lemmatize=False, dictionary={})
     # article_text = " "
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
         # article_text.join(text) + "\n"
         # if (i % 10000 == 0):
             # logger.info("Append " + str(i) + " articles")
-    wiki_file = open("/mnt/hdd3/guoyuyu/datasets/wikipedia/simplewiki-latest-pages-articles.txt", 'r')
+    wiki_file = open("/mnt/hdd3/***/datasets/wikipedia/simplewiki-latest-pages-articles.txt", 'r')
     article_text = wiki_file.readline()
     article_count = 0
     while article_text:
