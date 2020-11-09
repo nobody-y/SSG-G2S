@@ -1,0 +1,454 @@
+Testing Predcls
+VAL_ALPHA
+1
+.3
+1
+.3
+1
+.3
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+2020-09-13 23:13:57,402 maskrcnn_benchmark INFO: Using 2 GPUs
+2020-09-13 23:13:57,402 maskrcnn_benchmark INFO: AMP_VERBOSE: False
+DATALOADER:
+  ASPECT_RATIO_GROUPING: True
+  NUM_WORKERS: 4
+  SIZE_DIVISIBILITY: 32
+DATASETS:
+  TEST: ('VG_stanford_filtered_with_attribute_test',)
+  TRAIN: ('VG_stanford_filtered_with_attribute_train',)
+  VAL: ('VG_stanford_filtered_with_attribute_val',)
+DTYPE: float32
+GLOVE_DIR: ./datasets/vg/
+INPUT:
+  BRIGHTNESS: 0.0
+  CONTRAST: 0.0
+  HUE: 0.0
+  MAX_SIZE_TEST: 1000
+  MAX_SIZE_TRAIN: 1000
+  MIN_SIZE_TEST: 600
+  MIN_SIZE_TRAIN: (600,)
+  PIXEL_MEAN: [102.9801, 115.9465, 122.7717]
+  PIXEL_STD: [1.0, 1.0, 1.0]
+  SATURATION: 0.0
+  TO_BGR255: True
+  VERTICAL_FLIP_PROB_TRAIN: 0.0
+MODEL:
+  ATTRIBUTE_ON: False
+  BACKBONE:
+    CONV_BODY: R-101-FPN
+    FREEZE_CONV_BODY_AT: 2
+  CLS_AGNOSTIC_BBOX_REG: False
+  DEVICE: cuda
+  FBNET:
+    ARCH: default
+    ARCH_DEF: 
+    BN_TYPE: bn
+    DET_HEAD_BLOCKS: []
+    DET_HEAD_LAST_SCALE: 1.0
+    DET_HEAD_STRIDE: 0
+    DW_CONV_SKIP_BN: True
+    DW_CONV_SKIP_RELU: True
+    KPTS_HEAD_BLOCKS: []
+    KPTS_HEAD_LAST_SCALE: 0.0
+    KPTS_HEAD_STRIDE: 0
+    MASK_HEAD_BLOCKS: []
+    MASK_HEAD_LAST_SCALE: 0.0
+    MASK_HEAD_STRIDE: 0
+    RPN_BN_TYPE: 
+    RPN_HEAD_BLOCKS: 0
+    SCALE_FACTOR: 1.0
+    WIDTH_DIVISOR: 1
+  FLIP_AUG: False
+  FPN:
+    USE_GN: False
+    USE_RELU: False
+  GROUP_NORM:
+    DIM_PER_GP: -1
+    EPSILON: 1e-05
+    NUM_GROUPS: 32
+  KEYPOINT_ON: False
+  MASK_ON: False
+  META_ARCHITECTURE: GeneralizedRCNN
+  PRETRAINED_DETECTOR_CKPT: ./checkpoints/pretrained_faster_rcnn/model_final.pth
+  RELATION_ON: True
+  RESNETS:
+    BACKBONE_OUT_CHANNELS: 256
+    DEFORMABLE_GROUPS: 1
+    NUM_GROUPS: 32
+    RES2_OUT_CHANNELS: 256
+    RES5_DILATION: 1
+    STAGE_WITH_DCN: (False, False, False, False)
+    STEM_FUNC: StemWithFixedBatchNorm
+    STEM_OUT_CHANNELS: 64
+    STRIDE_IN_1X1: False
+    TRANS_FUNC: BottleneckWithFixedBatchNorm
+    WIDTH_PER_GROUP: 8
+    WITH_MODULATED_DCN: False
+  RETINANET:
+    ANCHOR_SIZES: (32, 64, 128, 256, 512)
+    ANCHOR_STRIDES: (8, 16, 32, 64, 128)
+    ASPECT_RATIOS: (0.5, 1.0, 2.0)
+    BBOX_REG_BETA: 0.11
+    BBOX_REG_WEIGHT: 4.0
+    BG_IOU_THRESHOLD: 0.4
+    FG_IOU_THRESHOLD: 0.5
+    INFERENCE_TH: 0.05
+    LOSS_ALPHA: 0.25
+    LOSS_GAMMA: 2.0
+    NMS_TH: 0.4
+    NUM_CLASSES: 81
+    NUM_CONVS: 4
+    OCTAVE: 2.0
+    PRE_NMS_TOP_N: 1000
+    PRIOR_PROB: 0.01
+    SCALES_PER_OCTAVE: 3
+    STRADDLE_THRESH: 0
+    USE_C5: True
+  RETINANET_ON: False
+  ROI_ATTRIBUTE_HEAD:
+    ATTRIBUTE_BGFG_RATIO: 3
+    ATTRIBUTE_BGFG_SAMPLE: True
+    ATTRIBUTE_LOSS_WEIGHT: 1.0
+    FEATURE_EXTRACTOR: FPN2MLPFeatureExtractor
+    MAX_ATTRIBUTES: 10
+    NUM_ATTRIBUTES: 201
+    POS_WEIGHT: 50.0
+    PREDICTOR: FPNPredictor
+    SHARE_BOX_FEATURE_EXTRACTOR: True
+    USE_BINARY_LOSS: True
+  ROI_BOX_HEAD:
+    CONV_HEAD_DIM: 256
+    DILATION: 1
+    FEATURE_EXTRACTOR: FPN2MLPFeatureExtractor
+    MLP_HEAD_DIM: 4096
+    NUM_CLASSES: 151
+    NUM_STACKED_CONVS: 4
+    POOLER_RESOLUTION: 7
+    POOLER_SAMPLING_RATIO: 2
+    POOLER_SCALES: (0.25, 0.125, 0.0625, 0.03125)
+    PREDICTOR: FPNPredictor
+    USE_GN: False
+  ROI_HEADS:
+    BATCH_SIZE_PER_IMAGE: 256
+    BBOX_REG_WEIGHTS: (10.0, 10.0, 5.0, 5.0)
+    BG_IOU_THRESHOLD: 0.3
+    DETECTIONS_PER_IMG: 80
+    FG_IOU_THRESHOLD: 0.5
+    NMS: 0.3
+    NMS_FILTER_DUPLICATES: True
+    POSITIVE_FRACTION: 0.5
+    POST_NMS_PER_CLS_TOPN: 300
+    SCORE_THRESH: 0.01
+    USE_FPN: True
+  ROI_KEYPOINT_HEAD:
+    CONV_LAYERS: (512, 512, 512, 512, 512, 512, 512, 512)
+    FEATURE_EXTRACTOR: KeypointRCNNFeatureExtractor
+    MLP_HEAD_DIM: 1024
+    NUM_CLASSES: 17
+    POOLER_RESOLUTION: 14
+    POOLER_SAMPLING_RATIO: 0
+    POOLER_SCALES: (0.0625,)
+    PREDICTOR: KeypointRCNNPredictor
+    RESOLUTION: 14
+    SHARE_BOX_FEATURE_EXTRACTOR: True
+  ROI_MASK_HEAD:
+    CONV_LAYERS: (256, 256, 256, 256)
+    DILATION: 1
+    FEATURE_EXTRACTOR: ResNet50Conv5ROIFeatureExtractor
+    MLP_HEAD_DIM: 1024
+    POOLER_RESOLUTION: 14
+    POOLER_SAMPLING_RATIO: 0
+    POOLER_SCALES: (0.0625,)
+    POSTPROCESS_MASKS: False
+    POSTPROCESS_MASKS_THRESHOLD: 0.5
+    PREDICTOR: MaskRCNNC4Predictor
+    RESOLUTION: 14
+    SHARE_BOX_FEATURE_EXTRACTOR: True
+    USE_GN: False
+  ROI_RELATION_HEAD:
+    ADD_GTBOX_TO_PROPOSAL_IN_TRAIN: True
+    BATCH_SIZE_PER_IMAGE: 1024
+    CAUSAL:
+      CONTEXT_LAYER: transformer
+      EFFECT_ANALYSIS: True
+      EFFECT_TYPE: none
+      FUSION_TYPE: sum
+      SEPARATE_SPATIAL: False
+      SPATIAL_FOR_VISION: True
+    CONTEXT_DROPOUT_RATE: 0.2
+    CONTEXT_HIDDEN_DIM: 768
+    CONTEXT_OBJ_LAYER: 1
+    CONTEXT_POOLING_DIM: 4096
+    CONTEXT_REL_LAYER: 1
+    EMBED_DIM: 200
+    FEATURE_EXTRACTOR: RelationFeatureExtractor
+    LABEL_SMOOTHING_LOSS: False
+    NUM_CLASSES: 51
+    NUM_SAMPLE_PER_GT_REL: 4
+    POOLING_ALL_LEVELS: True
+    POSITIVE_FRACTION: 0.25
+    PREDICTOR: TransformerSuperPredictor
+    PREDICT_USE_BIAS: True
+    PREDICT_USE_VISION: True
+    REL_PROP: [0.01858, 0.00057, 0.00051, 0.00109, 0.0015, 0.00489, 0.00432, 0.02913, 0.00245, 0.00121, 0.00404, 0.0011, 0.00132, 0.00172, 5e-05, 0.00242, 0.0005, 0.00048, 0.00208, 0.15608, 0.0265, 0.06091, 0.009, 0.00183, 0.00225, 0.0009, 0.00028, 0.00077, 0.04844, 0.08645, 0.31621, 0.00088, 0.00301, 0.00042, 0.00186, 0.001, 0.00027, 0.01012, 0.0001, 0.01286, 0.00647, 0.00084, 0.01077, 0.00132, 0.00069, 0.00376, 0.00214, 0.11424, 0.01205, 0.02958]
+    REQUIRE_BOX_OVERLAP: False
+    TRANSFORMER:
+      DROPOUT_RATE: 0.1
+      INNER_DIM: 2048
+      KEY_DIM: 64
+      NUM_HEAD: 8
+      OBJ_LAYER: 4
+      REL_LAYER: 2
+      VAL_DIM: 64
+    USE_GT_BOX: True
+    USE_GT_OBJECT_LABEL: True
+    VAL_ALPHA: 1.0
+    VAL_ALPHA_10: 0.3
+    VAL_ALPHA_15: 0.3
+    VAL_ALPHA_20: 0.3
+  RPN:
+    ANCHOR_SIZES: (32, 64, 128, 256, 512)
+    ANCHOR_STRIDE: (4, 8, 16, 32, 64)
+    ASPECT_RATIOS: (0.23232838, 0.63365731, 1.28478321, 3.15089189)
+    BATCH_SIZE_PER_IMAGE: 256
+    BG_IOU_THRESHOLD: 0.3
+    FG_IOU_THRESHOLD: 0.7
+    FPN_POST_NMS_PER_BATCH: False
+    FPN_POST_NMS_TOP_N_TEST: 1000
+    FPN_POST_NMS_TOP_N_TRAIN: 1000
+    MIN_SIZE: 0
+    NMS_THRESH: 0.7
+    POSITIVE_FRACTION: 0.5
+    POST_NMS_TOP_N_TEST: 1000
+    POST_NMS_TOP_N_TRAIN: 1000
+    PRE_NMS_TOP_N_TEST: 6000
+    PRE_NMS_TOP_N_TRAIN: 6000
+    RPN_HEAD: SingleConvRPNHead
+    RPN_MID_CHANNEL: 256
+    STRADDLE_THRESH: 0
+    USE_FPN: True
+  RPN_ONLY: False
+  VGG:
+    VGG16_OUT_CHANNELS: 512
+  WEIGHT: ./checkpoints/transformer_predcls_dist15_2k_IniPModel_CleanHead_Lr1e3_B16/model_0004000.pth
+OUTPUT_DIR: ./checkpoints/transformer_predcls_dist15_2k_IniPModel_CleanHead_Lr1e3_B16
+PATHS_CATALOG: /home/guoyuyu/code/scene_graph_gen/scene_graph_benchmark_pytorch/maskrcnn_benchmark/config/paths_catalog.py
+PATHS_DATA: /home/guoyuyu/code/scene_graph_gen/scene_graph_benchmark_pytorch/maskrcnn_benchmark/config/../data/datasets
+SOLVER:
+  BASE_LR: 0.001
+  BIAS_LR_FACTOR: 1
+  CHECKPOINT_PERIOD: 2000
+  CLIP_NORM: 5.0
+  GAMMA: 0.1
+  GRAD_NORM_CLIP: 5.0
+  IMS_PER_BATCH: 16
+  MAX_ITER: 16000
+  MOMENTUM: 0.9
+  PRE_VAL: True
+  PRINT_GRAD_FREQ: 4000
+  SCHEDULE:
+    COOLDOWN: 0
+    FACTOR: 0.1
+    MAX_DECAY_STEP: 3
+    PATIENCE: 2
+    THRESHOLD: 0.001
+    TYPE: WarmupMultiStepLR
+  STEPS: (10000, 16000)
+  TO_VAL: True
+  UPDATE_SCHEDULE_DURING_LOAD: False
+  VAL_PERIOD: 2000
+  WARMUP_FACTOR: 0.1
+  WARMUP_ITERS: 500
+  WARMUP_METHOD: linear
+  WEIGHT_DECAY: 0.0001
+  WEIGHT_DECAY_BIAS: 0.0
+TEST:
+  ALLOW_LOAD_FROM_CACHE: False
+  BBOX_AUG:
+    ENABLED: False
+    H_FLIP: False
+    MAX_SIZE: 4000
+    SCALES: ()
+    SCALE_H_FLIP: False
+  DETECTIONS_PER_IMG: 100
+  EXPECTED_RESULTS: []
+  EXPECTED_RESULTS_SIGMA_TOL: 4
+  IMS_PER_BATCH: 2
+  RELATION:
+    IOU_THRESHOLD: 0.5
+    LATER_NMS_PREDICTION_THRES: 0.5
+    MULTIPLE_PREDS: False
+    REQUIRE_OVERLAP: False
+    SYNC_GATHER: True
+  SAVE_PROPOSALS: False
+  VAL_FLAG: True
+2020-09-13 23:13:57,416 maskrcnn_benchmark INFO: Collecting env info (might take some time)
+2020-09-13 23:14:11,076 maskrcnn_benchmark INFO: 
+PyTorch version: 1.2.0
+Is debug build: No
+CUDA used to build PyTorch: 10.0.130
+
+OS: Ubuntu 20.04.1 LTS
+GCC version: (Ubuntu 9.3.0-10ubuntu2) 9.3.0
+CMake version: version 3.11.3
+
+Python version: 3.7
+Is CUDA available: Yes
+CUDA runtime version: Could not collect
+GPU models and configuration: 
+GPU 0: TITAN Xp
+GPU 1: TITAN Xp
+GPU 2: TITAN Xp
+GPU 3: TITAN X (Pascal)
+GPU 4: TITAN Xp
+GPU 5: TITAN Xp
+GPU 6: TITAN Xp
+GPU 7: TITAN Xp
+
+Nvidia driver version: 450.51.05
+cuDNN version: Probably one of the following:
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn.so.8.0.1
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn_adv_infer.so.8.0.1
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn_adv_train.so.8.0.1
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn_cnn_infer.so.8.0.1
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn_cnn_train.so.8.0.1
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn_ops_infer.so.8.0.1
+/usr/local/cuda-11.0/targets/x86_64-linux/lib/libcudnn_ops_train.so.8.0.1
+
+Versions of relevant libraries:
+[pip3] numpy==1.18.1
+[pip3] torch==1.2.0
+[pip3] torchvision==0.4.0a0
+[conda] _pytorch_select           0.2                       gpu_0  
+[conda] blas                      1.0                         mkl    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+[conda] mkl                       2020.1                      217    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+[conda] mkl-service               2.3.0            py37he904b0f_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+[conda] mkl_fft                   1.0.15           py37ha843d7b_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+[conda] mkl_random                1.1.1            py37h0573a6f_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+[conda] pytorch                   1.2.0           cuda100py37h938c94c_0  
+[conda] torchvision               0.4.0           cuda100py37hecfc37a_0
+        Pillow (7.1.2)
+loading word vectors from ./datasets/vg/glove.6B.200d.pt
+2020-09-13 23:14:18,020 maskrcnn_benchmark.data.build INFO: ----------------------------------------------------------------------------------------------------
+2020-09-13 23:14:18,020 maskrcnn_benchmark.data.build INFO: get dataset statistics...
+2020-09-13 23:14:18,021 maskrcnn_benchmark.data.build INFO: Loading data statistics from: ./checkpoints/transformer_predcls_dist15_2k_IniPModel_CleanHead_Lr1e3_B16/VG_stanford_filtered_with_attribute_train_statistics.cache
+2020-09-13 23:14:18,021 maskrcnn_benchmark.data.build INFO: ----------------------------------------------------------------------------------------------------
+loading word vectors from ./datasets/vg/glove.6B.200d.pt
+__background__ -> __background__ 
+fail on __background__
+__background__ -> __background__ 
+fail on __background__
+2020-09-13 23:14:20,179 maskrcnn_benchmark.utils.checkpoint INFO: Loading checkpoint from ./checkpoints/transformer_predcls_dist15_2k_IniPModel_CleanHead_Lr1e3_B16/model_0004000.pth
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_10.bias of shape (51,)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_10.weight of shape (51, 1536)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_15.bias of shape (51,)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_15.weight of shape (51, 1536)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_20.bias of shape (51,)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_20.weight of shape (51, 1536)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_10.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_15.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_20.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_10.bias of shape (51,)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_10.weight of shape (51, 4096)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_15.bias of shape (51,)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_15.weight of shape (51, 4096)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_20.bias of shape (51,)
+2020-09-13 23:14:21,281 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_20.weight of shape (51, 4096)
+2020-09-13 23:14:21,700 maskrcnn_benchmark.utils.checkpoint INFO: Loading checkpoint from checkpoints/transformer_predcls_dist10_2k_FixPModel_CleanH_Lr1e3_B16/model_0014000.pth
+2020-09-13 23:14:22,784 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.ctx_compress_clean_10.bias in current model to roi_heads.relation.predictor.ctx_compress_clean.bias in loaded model.
+2020-09-13 23:14:22,784 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.ctx_compress_clean_10.weight in current model to roi_heads.relation.predictor.ctx_compress_clean.weight in loaded model.
+2020-09-13 23:14:22,784 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.freq_bias_clean_10.obj_baseline.weight in current model to roi_heads.relation.predictor.freq_bias_clean.obj_baseline.weight in loaded model.
+2020-09-13 23:14:22,784 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.rel_compress_clean_10.bias in current model to roi_heads.relation.predictor.rel_compress_clean.bias in loaded model.
+2020-09-13 23:14:22,784 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.rel_compress_clean_10.weight in current model to roi_heads.relation.predictor.rel_compress_clean.weight in loaded model.
+2020-09-13 23:14:22,891 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.ctx_compress_clean_10.bias                                          loaded from roi_heads.relation.predictor.ctx_compress_clean.bias                                             of shape (51,)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.ctx_compress_clean_10.weight                                        loaded from roi_heads.relation.predictor.ctx_compress_clean.weight                                           of shape (51, 1536)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_15.bias of shape (51,)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_15.weight of shape (51, 1536)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_20.bias of shape (51,)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_20.weight of shape (51, 1536)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.freq_bias_clean_10.obj_baseline.weight                              loaded from roi_heads.relation.predictor.freq_bias_clean.obj_baseline.weight                                 of shape (22801, 51)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_15.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_20.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.rel_compress_clean_10.bias                                          loaded from roi_heads.relation.predictor.rel_compress_clean.bias                                             of shape (51,)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.rel_compress_clean_10.weight                                        loaded from roi_heads.relation.predictor.rel_compress_clean.weight                                           of shape (51, 4096)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_15.bias of shape (51,)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_15.weight of shape (51, 4096)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_20.bias of shape (51,)
+2020-09-13 23:14:22,892 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_20.weight of shape (51, 4096)
+2020-09-13 23:14:23,521 maskrcnn_benchmark.utils.checkpoint INFO: Loading checkpoint from checkpoints/transformer_predcls_dist15_2k_FixPModel_CleanH_Lr1e3_B16/model_0004000.pth
+2020-09-13 23:14:24,404 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.ctx_compress_clean_15.bias in current model to roi_heads.relation.predictor.ctx_compress_clean.bias in loaded model.
+2020-09-13 23:14:24,404 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.ctx_compress_clean_15.weight in current model to roi_heads.relation.predictor.ctx_compress_clean.weight in loaded model.
+2020-09-13 23:14:24,404 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.freq_bias_clean_15.obj_baseline.weight in current model to roi_heads.relation.predictor.freq_bias_clean.obj_baseline.weight in loaded model.
+2020-09-13 23:14:24,404 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.rel_compress_clean_15.bias in current model to roi_heads.relation.predictor.rel_compress_clean.bias in loaded model.
+2020-09-13 23:14:24,404 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.rel_compress_clean_15.weight in current model to roi_heads.relation.predictor.rel_compress_clean.weight in loaded model.
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_10.bias of shape (51,)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_10.weight of shape (51, 1536)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.ctx_compress_clean_15.bias                                          loaded from roi_heads.relation.predictor.ctx_compress_clean.bias                                             of shape (51,)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.ctx_compress_clean_15.weight                                        loaded from roi_heads.relation.predictor.ctx_compress_clean.weight                                           of shape (51, 1536)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_20.bias of shape (51,)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_20.weight of shape (51, 1536)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_10.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.freq_bias_clean_15.obj_baseline.weight                              loaded from roi_heads.relation.predictor.freq_bias_clean.obj_baseline.weight                                 of shape (22801, 51)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_20.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_10.bias of shape (51,)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_10.weight of shape (51, 4096)
+2020-09-13 23:14:24,528 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.rel_compress_clean_15.bias                                          loaded from roi_heads.relation.predictor.rel_compress_clean.bias                                             of shape (51,)
+2020-09-13 23:14:24,529 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.rel_compress_clean_15.weight                                        loaded from roi_heads.relation.predictor.rel_compress_clean.weight                                           of shape (51, 4096)
+2020-09-13 23:14:24,529 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_20.bias of shape (51,)
+2020-09-13 23:14:24,529 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_20.weight of shape (51, 4096)
+2020-09-13 23:14:25,048 maskrcnn_benchmark.utils.checkpoint INFO: Loading checkpoint from checkpoints/transformer_predcls_dist20_2k_FixPModel_CleanH_Lr1e3_B16/model_0010000.pth
+2020-09-13 23:14:25,969 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.ctx_compress_clean_20.bias in current model to roi_heads.relation.predictor.ctx_compress_clean.bias in loaded model.
+2020-09-13 23:14:25,969 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.ctx_compress_clean_20.weight in current model to roi_heads.relation.predictor.ctx_compress_clean.weight in loaded model.
+2020-09-13 23:14:25,969 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.freq_bias_clean_20.obj_baseline.weight in current model to roi_heads.relation.predictor.freq_bias_clean.obj_baseline.weight in loaded model.
+2020-09-13 23:14:25,969 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.rel_compress_clean_20.bias in current model to roi_heads.relation.predictor.rel_compress_clean.bias in loaded model.
+2020-09-13 23:14:25,970 maskrcnn_benchmark.utils.model_serialization INFO: MAPPING roi_heads.relation.predictor.rel_compress_clean_20.weight in current model to roi_heads.relation.predictor.rel_compress_clean.weight in loaded model.
+flag_stat:  False
+2020-09-13 23:14:26,067 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_10.bias of shape (51,)
+2020-09-13 23:14:26,067 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_10.weight of shape (51, 1536)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_15.bias of shape (51,)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.ctx_compress_clean_15.weight of shape (51, 1536)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.ctx_compress_clean_20.bias                                          loaded from roi_heads.relation.predictor.ctx_compress_clean.bias                                             of shape (51,)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.ctx_compress_clean_20.weight                                        loaded from roi_heads.relation.predictor.ctx_compress_clean.weight                                           of shape (51, 1536)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_10.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.freq_bias_clean_15.obj_baseline.weight of shape (22801, 51)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.freq_bias_clean_20.obj_baseline.weight                              loaded from roi_heads.relation.predictor.freq_bias_clean.obj_baseline.weight                                 of shape (22801, 51)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_10.bias of shape (51,)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_10.weight of shape (51, 4096)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_15.bias of shape (51,)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: NO-MATCHING of current module: roi_heads.relation.predictor.rel_compress_clean_15.weight of shape (51, 4096)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.rel_compress_clean_20.bias                                          loaded from roi_heads.relation.predictor.rel_compress_clean.bias                                             of shape (51,)
+2020-09-13 23:14:26,068 maskrcnn_benchmark.utils.model_serialization INFO: REMATCHING! roi_heads.relation.predictor.rel_compress_clean_20.weight                                        loaded from roi_heads.relation.predictor.rel_compress_clean.weight                                           of shape (51, 4096)
+flag_stat:  False
+root_classes_count:  {}
+mean root class number:  0.0
+sum root class number:  0
+leaf_classes_count:  {}
+mean leaf class number:  0.0
+sum leaf class number:  0
+all_classes_count:  {}
+mean all class number:  0.0
+sum all class number:  0
+number images:  5000
+  0%|          | 0/2500 [00:00<?, ?it/s]root_classes_count:  {}
+mean root class number:  0.0
+sum root class number:  0
+leaf_classes_count:  {}
+mean leaf class number:  0.0
+sum leaf class number:  0
+all_classes_count:  {}
+mean all class number:  0.0
+sum all class number:  0
+number images:  5000
+2020-09-13 23:14:28,514 maskrcnn_benchmark.inference INFO: Start evaluation on VG_stanford_filtered_with_attribute_test dataset(5000 images).
+  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 1/2500 [00:03<2:38:30,  3.81s/it]  0%|          | 1/2500 [00:03<2:06:02,  3.03s/it]  0%|          | 2/2500 [00:03<1:52:45,  2.71s/it]  0%|          | 2/2500 [00:03<1:30:02,  2.16s/it]  0%|          | 3/2500 [00:04<1:21:36,  1.96s/it]  0%|          | 3/2500 [00:03<1:05:41,  1.58s/it]  0%|          | 4/2500 [00:03<47:55,  1.15s/it]    0%|          | 4/2500 [00:04<59:03,  1.42s/it]    0%|          | 5/2500 [00:04<43:17,  1.04s/it]  0%|          | 5/2500 [00:03<35:30,  1.17it/s]  0%|          | 6/2500 [00:04<32:19,  1.29it/s]  0%|          | 6/2500 [00:03<26:53,  1.55it/s]  0%|          | 7/2500 [00:04<20:52,  1.99it/s]  0%|          | 7/2500 [00:04<24:41,  1.68it/s]  0%|          | 8/2500 [00:05<19:35,  2.12it/s]  0%|          | 8/2500 [00:04<16:56,  2.45it/s]  0%|          | 9/2500 [00:05<16:12,  2.56it/s]  0%|          | 9/2500 [00:04<14:20,  2.90it/s]  0%|          | 10/2500 [00:05<13:12,  3.14it/s]  0%|          | 10/2500 [00:04<11:53,  3.49it/s]  0%|          | 11/2500 [00:04<10:19,  4.02it/s]  0%|          | 11/2500 [00:05<11:14,  3.69it/s]  0%|          | 12/2500 [00:04<09:24,  4.40it/s]  0%|          | 12/2500 [00:05<10:03,  4.12it/s]  1%|          | 13/2500 [00:06<12:20,  3.36it/s]  1%|          | 13/2500 [00:05<11:55,  3.48it/s]  1%|          | 14/2500 [00:06<18:30,  2.24it/s]  1%|          | 14/2500 [00:06<18:25,  2.25it/s]  1%|          | 15/2500 [00:07<20:59,  1.97it/s]  1%|          | 15/2500 [00:06<20:56,  1.98it/s]  1%|          | 16/2500 [00:08<23:36,  1.75it/s]  1%|          | 16/2500 [00:07<23:27,  1.76it/s]  1%|          | 17/2500 [00:08<22:58,  1.80it/s]  1%|          | 17/2500 [00:08<23:15,  1.78it/s]  1%|          | 18/2500 [00:09<22:43,  1.82it/s]  1%|          | 18/2500 [00:08<22:38,  1.83it/s]  1%|          | 19/2500 [00:09<20:49,  1.98it/s]  1%|          | 19/2500 [00:08<20:55,  1.98it/s]  1%|          | 20/2500 [00:09<19:47,  2.09it/s]  1%|          | 20/2500 [00:10<19:57,  2.07it/s]  1%|          | 21/2500 [00:10<17:00,  2.43it/s]  1%|          | 21/2500 [00:09<16:54,  2.44it/s]  1%|          | 22/2500 [00:10<16:11,  2.55it/s]  1%|          | 22/2500 [00:09<16:07,  2.56it/s]  1%|          | 23/2500 [00:10<14:18,  2.89it/s]  1%|          | 23/2500 [00:11<14:22,  2.87it/s]  1%|          | 24/2500 [00:10<13:34,  3.04it/s]  1%|          | 24/2500 [00:11<13:37,  3.03it/s]  1%|          | 25/2500 [00:11<12:43,  3.24it/s]  1%|          | 25/2500 [00:10<12:43,  3.24it/s]  1%|          | 26/2500 [00:11<13:01,  3.17it/s]  1%|          | 26/2500 [00:11<13:00,  3.17it/s]  1%|          | 27/2500 [00:11<13:54,  2.96it/s]  1%|          | 27/2500 [00:12<13:56,  2.96it/s]  1%|          | 28/2500 [00:11<12:55,  3.19it/s]  1%|          | 28/2500 [00:12<12:56,  3.18it/s]  1%|          | 29/2500 [00:12<13:24,  3.07it/s]  1%|          | 29/2500 [00:12<13:29,  3.05it/s]  1%|          | 30/2500 [00:13<14:11,  2.90it/s]  1%|          | 30/2500 [00:12<14:13,  2.90it/s]  1%|          | 31/2500 [00:13<16:14,  2.53it/s]  1%|          | 31/2500 [00:13<16:29,  2.49it/s]  1%|▏         | 32/2500 [00:14<19:57,  2.06it/s]  1%|▏         | 32/2500 [00:13<20:03,  2.05it/s]  1%|▏         | 33/2500 [00:15<23:53,  1.72it/s]  1%|▏         | 33/2500 [00:14<23:48,  1.73it/s]  1%|▏         | 34/2500 [00:15<19:29,  2.11it/s]  1%|▏         | 34/2500 [00:14<19:25,  2.12it/s]  1%|▏         | 35/2500 [00:15<16:36,  2.47it/s]  1%|▏         | 35/2500 [00:14<16:33,  2.48it/s]  1%|▏         | 36/2500 [00:16<15:58,  2.57it/s]  1%|▏         | 36/2500 [00:15<16:01,  2.56it/s]  1%|▏         | 37/2500 [00:16<17:25,  2.36it/s]  1%|▏         | 37/2500 [00:15<17:22,  2.36it/s]  2%|▏         | 38/2500 [00:16<14:31,  2.83it/s]  2%|▏         | 38/2500 [00:16<14:33,  2.82it/s]  2%|▏         | 39/2500 [00:17<14:54,  2.75it/s]  2%|▏         | 39/2500 [00:16<15:06,  2.71it/s]  2%|▏         | 40/2500 [00:17<16:37,  2.47it/s]  2%|▏         | 40/2500 [00:16<16:32,  2.48it/s]  2%|▏         | 41/2500 [00:18<20:21,  2.01it/s]  2%|▏         | 41/2500 [00:17<20:27,  2.00it/s]  2%|▏         | 42/2500 [00:18<23:02,  1.78it/s]  2%|▏         | 42/2500 [00:19<23:12,  1.76it/s]  2%|▏         | 43/2500 [00:18<20:52,  1.96it/s]  2%|▏         | 43/2500 [00:19<21:03,  1.95it/s]  2%|▏         | 44/2500 [00:20<21:32,  1.90it/s]  2%|▏         | 44/2500 [00:19<21:34,  1.90it/s]  2%|▏         | 45/2500 [00:19<23:10,  1.77it/s]  2%|▏         | 45/2500 [00:20<23:10,  1.77it/s]  2%|▏         | 46/2500 [00:20<21:19,  1.92it/s]  2%|▏         | 46/2500 [00:21<21:23,  1.91it/s]  2%|▏         | 47/2500 [00:21<19:33,  2.09it/s]  2%|▏         | 47/2500 [00:20<19:39,  2.08it/s]  2%|▏         | 48/2500 [00:21<18:02,  2.27it/s]  2%|▏         | 48/2500 [00:21<18:02,  2.26it/s]Traceback (most recent call last):
+  File "/home/guoyuyu/software/anaconda3/envs/scene_graph_benchmark/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/guoyuyu/software/anaconda3/envs/scene_graph_benchmark/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/guoyuyu/software/anaconda3/envs/scene_graph_benchmark/lib/python3.7/site-packages/torch/distributed/launch.py", line 246, in <module>
+    main()
+  File "/home/guoyuyu/software/anaconda3/envs/scene_graph_benchmark/lib/python3.7/site-packages/torch/distributed/launch.py", line 242, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/home/guoyuyu/software/anaconda3/envs/scene_graph_benchmark/bin/python', '-u', 'tools/relation_test_net.py', '--local_rank=1', '--config-file', 'configs/e2e_relation_X_101_32_8_FPN_1x_transformer.yaml', 'MODEL.ROI_RELATION_HEAD.USE_GT_BOX', 'True', 'MODEL.ROI_RELATION_HEAD.USE_GT_OBJECT_LABEL', 'True', 'MODEL.ROI_RELATION_HEAD.PREDICTOR', 'TransformerSuperPredictor', 'TEST.IMS_PER_BATCH', '2', 'DTYPE', 'float32', 'GLOVE_DIR', './datasets/vg/', 'MODEL.PRETRAINED_DETECTOR_CKPT', './checkpoints/pretrained_faster_rcnn/model_final.pth', 'MODEL.WEIGHT', './checkpoints/transformer_predcls_dist15_2k_IniPModel_CleanHead_Lr1e3_B16/model_0004000.pth', 'OUTPUT_DIR', './checkpoints/transformer_predcls_dist15_2k_IniPModel_CleanHead_Lr1e3_B16', 'TEST.ALLOW_LOAD_FROM_CACHE', 'False', 'TEST.VAL_FLAG', 'True', 'MODEL.ROI_RELATION_HEAD.VAL_ALPHA_10', '.3', 'MODEL.ROI_RELATION_HEAD.VAL_ALPHA_15', '.3', 'MODEL.ROI_RELATION_HEAD.VAL_ALPHA_20', '.3']' died with <Signals.SIGTERM: 15>.
