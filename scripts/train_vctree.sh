@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export PYTHONPATH=/home/guoyuyu/lib/apex:/home/guoyuyu/lib/cocoapi:/home/guoyuyu/code/scene_graph_gen/scene_graph_benchmark_pytorch:$PYTHONPATH
+export PYTHONPATH=/home/***/lib/apex:/home/***/lib/cocoapi:/home/***/code/scene_graph_gen/scene_graph_benchmark_pytorch:$PYTHONPATH
 if [ $1 == "0" ]; then
     export CUDA_VISIBLE_DEVICES=0,2 #3,4 #,4 #3,4
     export NUM_GUP=2
