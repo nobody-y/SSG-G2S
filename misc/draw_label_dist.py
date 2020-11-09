@@ -9,7 +9,7 @@ import matplotlib.pylab as pylab
 import seaborn as sns
 from scipy import stats
 import pandas as pd
-vg_dict = json.load(open('/mnt/hdd2/guoyuyu/datasets/visual_genome/data/genome/VG-SGG-dicts-with-attri-info.json','r'))
+vg_dict = json.load(open('/mnt/hdd2/***/datasets/visual_genome/data/genome/VG-SGG-dicts-with-attri-info.json','r'))
 pred_count = vg_dict['predicate_count']
 pred_count_sort = sorted(pred_count.items(), key = lambda kv:(kv[1], kv[0]), reverse = True)
 
