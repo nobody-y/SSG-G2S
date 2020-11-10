@@ -16,7 +16,7 @@ The training script should be set up as follows: \
     MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER False  
 ### Finetuning the specific model
 The training script should be set up as follows: \
-    MODEL.PRETRAINED_MODEL_CKPT 'Path to the general model' \
+    MODEL.PRETRAINED_MODEL_CKPT 'path to the general model' \
     MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER True \
     MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER True  
 
