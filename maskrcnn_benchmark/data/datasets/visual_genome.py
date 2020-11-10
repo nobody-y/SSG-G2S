@@ -402,7 +402,6 @@ def load_graphs(roidb_file, split, num_im, num_val_im, filter_empty_rels, filter
         root_classes = None
     if get_state:
         root_classes = None
-    root_classes = None
     root_classes_count = {}
     leaf_classes_count = {}
     all_classes_count = {}
