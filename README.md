@@ -11,13 +11,13 @@ We write some [scripts](https://github.com/nobody-y/SSG-G2S/tree/main/scripts) f
 The training process is divided into two stages:
 ### Training the general model
 The training script should be set up as follows: 
-    MODEL.PRETRAINED_MODEL_CKPT '' \
-    MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER False \
-    MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER False  \
+    MODEL.PRETRAINED_MODEL_CKPT '' 
+    MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER False 
+    MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER False  
 ### Finetuning the specific model
 The training script should be set up as follows: 
-    MODEL.PRETRAINED_MODEL_CKPT 'Path to the general model' \
-    MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER True \
-    MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER True  \
+    MODEL.PRETRAINED_MODEL_CKPT 'Path to the general model' 
+    MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER True 
+    MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER True  
 
 
