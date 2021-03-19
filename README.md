@@ -20,14 +20,14 @@ Visualization results of Transformer (BA-SGG) on the PredCls task. Our approach 
 ## Training and Testing 
 We write some [scripts](https://github.com/nobody-y/SSG-G2S/tree/main/scripts) for training and testing.
 The training process is divided into two stages:
-### Training the general model
+### Training the Common SGG model
 The training script should be set up as follows: \
     MODEL.PRETRAINED_MODEL_CKPT '' \
     MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER False \
     MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER False  
-### Finetuning the specific model
+### Finetuning the Informavtive SGG model
 The training script should be set up as follows: \
-    MODEL.PRETRAINED_MODEL_CKPT 'path to the general model' \
+    MODEL.PRETRAINED_MODEL_CKPT 'path to the common model' \
     MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER True \
     MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER True  
 
