@@ -9,10 +9,10 @@ This anonymous repository contains code for the paper "From General to Specific:
 <div align=center><img width="672" height="508" src=demo/framework_G2ST.png/></div>
 
 ## Performance
-<div align=center><img src=demo/performance.png/></div>
+<div align=center><img width="938" height="345" src=demo/performance.png/></div>
 
 ## Visualization
-<div align=center><img src=demo/vis_res_supp1.png/></div>
+<div align=center><img width="994" height="774" src=demo/vis_res_supp1.png/></div>
 
 ## Training and Testing 
 We write some [scripts](https://github.com/nobody-y/SSG-G2S/tree/main/scripts) for training and testing.
