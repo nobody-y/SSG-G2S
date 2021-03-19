@@ -31,5 +31,4 @@ The training script should be set up as follows: \
     MODEL.ROI_RELATION_HEAD.WITH_CLEAN_CLASSIFIER True \
     MODEL.ROI_RELATION_HEAD.WITH_TRANSFER_CLASSIFIER True  
 
-Trained models can be dowload from [BaiduYun](https://pan.baidu.com/s/1s-jk8GsCAgCDv6XdZRA8jA) (Password: a4rd)
 
