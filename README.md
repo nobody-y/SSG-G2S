@@ -7,10 +7,13 @@
 This anonymous repository contains code for the paper "From General to Specific: Informative Scene Graph Generation via Balance Adjustment". This code is based on [Scene-Graph-Benchmark.pytorch](https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch). Follow the [instructions](https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch) to install and use the code. 
 ## Framework
 <div align=center><img width="672" height="508" src=demo/framework_G2ST.png/></div>
+
 ## Performance
-![alt text](demo/performance.png)
+<div align=center><img src=demo/performance.png/></div>
+
 ## Visualization
-![alt text](demo/vis_res_supp1.png)
+<div align=center><img src=demo/vis_res_supp1.png/></div>
+
 ## Training and Testing 
 We write some [scripts](https://github.com/nobody-y/SSG-G2S/tree/main/scripts) for training and testing.
 The training process is divided into two stages:
